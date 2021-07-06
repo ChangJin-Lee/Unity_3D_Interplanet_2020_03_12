@@ -1,6 +1,8 @@
 # Unity_3D_SpaceShip_2020_03_12
 
-유니티 3D 우주선 슈팅게임 - 추가할 것 남아있음.
+유니티 3D 우주선 슈팅게임 등
+
+-> 속도 증감 표현 추가해야함
 
 [Game_Shooting.pdf](https://github.com/Jotter-Vortex/Unity_3D_SpaceShip_2020_03_12/files/6771148/Game_Shooting.pdf)
 
