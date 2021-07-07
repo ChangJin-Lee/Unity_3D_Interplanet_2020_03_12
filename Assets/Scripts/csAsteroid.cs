@@ -22,6 +22,7 @@ public class csAsteroid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 움직이는 양 -> amount
         float amtMove = Speed * Time.smoothDeltaTime;
 
         transform.Rotate(new Vector3(rotX, rotY, rotZ) * Time.smoothDeltaTime);

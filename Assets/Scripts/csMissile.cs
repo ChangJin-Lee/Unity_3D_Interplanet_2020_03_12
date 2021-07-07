@@ -30,6 +30,7 @@ public class csMissile : MonoBehaviour
 
             Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
+                // Æø¹ß È¿°úÀ½
             AudioSource.PlayClipAtPoint(Resources.Load("explosion") as AudioClip, transform.position);
 
             }
