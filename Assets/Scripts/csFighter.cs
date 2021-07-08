@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 //using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class csFighter : MonoBehaviour
 {
     int Speed = 30; // 전투기 속도
     float fw = Screen.width * 0.08f;  // 전투기 폭
     float fh = Screen.height * 0.08f; // 전투기 높이
+
+    public Text ScoreLabel;
 
     // Start is called before the first frame update
     void Start()
@@ -44,5 +47,19 @@ public class csFighter : MonoBehaviour
 
         // 전투기 약간 회전
         transform.eulerAngles = new Vector3(0, 0, -key * 20);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "ASTEROID")
+        {
+            csMissile.score -= 50;
+            ScoreLabel.text = "Score : " + csMissile.score;
+
+            if (csMissile.score <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 }

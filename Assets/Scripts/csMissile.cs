@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class csMissile : MonoBehaviour
 {
     public GameObject explosionParticlesPrefab;
 
+    // 점수를 나타내기위한 UI
+    public Text ScoreLabel;
+
     ParticleSystem testParticle = null;
+
+    static public int score = 500;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +30,15 @@ public class csMissile : MonoBehaviour
     {
         if (other.tag == "ASTEROID")
         {
+            score += 10;
+            ScoreLabel.text = "Score : " + score;
+
             if (explosionParticlesPrefab)
             {
             GameObject explosion = (GameObject)Instantiate(explosionParticlesPrefab, other.transform.position, other.transform.rotation);
 
             Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetime.constant);
 
-                // 폭발 효과음
             AudioSource.PlayClipAtPoint(Resources.Load("explosion") as AudioClip, transform.position);
 
             }
